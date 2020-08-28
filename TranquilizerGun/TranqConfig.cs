@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,14 +10,19 @@ using Exiled.API.Interfaces;
 using Exiled.Loader;
 using UnityEngine;
 
-namespace TranquilizerGun {
-    public class TranqConfig : IConfig {
+namespace TranquilizerGun
+{
+    public class TranqConfig : IConfig
+    {
 
         [Description("Is the plugin enabled?")]
         public bool IsEnabled { get; set; } = true;
 
         [Description("If set to false, only the commands will be enabled.")]
         public bool IsEnabledCustom { get; set; } = true;
+
+        [Description("Does the Tranquilizer Gun only affect Class-D Personnel and Scientists?")]
+        public bool ClassDScientistsOnly { get; set; } = false;
 
         #region Tranquilizer Settings
         [Description("Is the COM-15 treated as a Tranquilizer?")]
@@ -116,7 +121,7 @@ namespace TranquilizerGun {
 
         public bool concussed { get; set; } = false;
         public float concussedDuration { get; set; } = 3f;
-                
+
         public bool deafened { get; set; } = false;
         public float deafenedDuration { get; set; } = 3f;
 
@@ -128,7 +133,7 @@ namespace TranquilizerGun {
 
         public bool poisoned { get; set; } = false;
         public float poisonedDuration { get; set; } = 3f;
-                
+
         public bool asphyxiated { get; set; } = false;
         public float asphyxiatedDuration { get; set; } = 3f;
 
@@ -151,36 +156,52 @@ namespace TranquilizerGun {
         public float invisibleDuration { get; set; } = 3f;
         #endregion
 
-        public List<RoleType> BlacklistedRoles() {
+        public List<RoleType> BlacklistedRoles()
+        {
             List<RoleType> l = new List<RoleType>();
-            if(doBlacklist) {
-                try {
+            if (doBlacklist)
+            {
+                try
+                {
                     string[] bl = Regex.Replace(blacklist, @"\s+", "").Split(',');
-                    foreach(string r in bl) {
-                        if(Enum.TryParse(r, true, out RoleType role)) {
+                    foreach (string r in bl)
+                    {
+                        if (Enum.TryParse(r, true, out RoleType role))
+                        {
                             l.Add(role);
-                        } else
+                        }
+                        else
                             Log.Error($"Couldn't parse role: {r}.");
                     }
-                } catch(Exception e) {
+                }
+                catch (Exception e)
+                {
                     e.Print("Loading Blacklisted Roles");
                 }
             }
             return l;
         }
 
-        public Dictionary<RoleType, ushort> SpecialRoles() {
+        public Dictionary<RoleType, ushort> SpecialRoles()
+        {
             Dictionary<RoleType, ushort> l = new Dictionary<RoleType, ushort>();
-            if(doSpecialRoles) {
-                try {
+            if (doSpecialRoles)
+            {
+                try
+                {
                     string[] specialRoles = Regex.Replace(specialRolesList, @"\s+", "").Split(',');
-                    foreach(string o in specialRoles) {
+                    foreach (string o in specialRoles)
+                    {
                         string[] option = Regex.Replace(o, @"\s+", "").Split(':');
-                        if(Enum.TryParse(option[0], true, out RoleType role) && ushort.TryParse(option[1], out ushort shots)) {
+                        if (Enum.TryParse(option[0], true, out RoleType role) && ushort.TryParse(option[1], out ushort shots))
+                        {
                             l.Add(role, shots);
-                        } else Log.Error($"Couldn't load {o}.");
+                        }
+                        else Log.Error($"Couldn't load {o}.");
                     }
-                } catch(Exception e) {
+                }
+                catch (Exception e)
+                {
                     e.Print("Loading Special Roles");
                 }
             }
