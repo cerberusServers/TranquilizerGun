@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -86,7 +86,7 @@ namespace TranquilizerGun {
 
         public void HurtEvent(HurtingEventArgs ev) {
             try {
-                if(ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role))
+                if((plugin.Config.ClassDScientistsOnly && ev.Target.Role != RoleType.ClassD && ev.Target.Role != RoleType.Scientist) || ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role))
                     return;
                 else if(tranquilized.Contains(ev.Target.UserId)
                     && (ev.DamageType == DamageTypes.Decont || ev.DamageType == DamageTypes.Nuke || ev.DamageType == DamageTypes.Scp939) 
