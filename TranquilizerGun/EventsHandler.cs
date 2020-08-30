@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +19,14 @@ namespace TranquilizerGun {
 
         private Plugin plugin;
         public List<string> tranquilized, armored;
-        public Dictionary<string, int> scpShots;
+        public Dictionary<string, float> scpShots;
         bool allArmorEnabled = false, testFix;
 
         public EventsHandler(Plugin plugin) {
             this.plugin = plugin;
             tranquilized = new List<string>();
             armored = new List<string>();
-            scpShots = new Dictionary<string, int>();
+            scpShots = new Dictionary<string, float>();
         }
 
         public void RoundEnd(RoundEndedEventArgs ev) {
@@ -86,7 +86,8 @@ namespace TranquilizerGun {
 
         public void HurtEvent(HurtingEventArgs ev) {
             try {
-                if(ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role))
+                float oldamount = ev.Amount;
+                if (ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role))
                     return;
                 else if(tranquilized.Contains(ev.Target.UserId)
                     && (ev.DamageType == DamageTypes.Decont || ev.DamageType == DamageTypes.Nuke || ev.DamageType == DamageTypes.Scp939) 
@@ -95,7 +96,6 @@ namespace TranquilizerGun {
                     return;
                 } else if(IsTranquilizerDamage(ev.DamageType) && !tranquilized.Contains(ev.Target.UserId)) {
                     if(!IsTranquilizer(ev.Attacker.CurrentItem.id) && plugin.Config.silencerRequired && !ev.Attacker.HasSilencer()) return;
-
                     ev.Amount = plugin.Config.tranquilizerDamage;
 
                     if(!plugin.Config.FriendlyFire && (ev.Target.Side == ev.Attacker.Side
@@ -103,17 +103,18 @@ namespace TranquilizerGun {
                         return;
 
                     string id = ev.Target.UserId;
-                    if(plugin.Config.specialRoles.Keys.Contains(ev.Target.Role)) {
-                        if(!scpShots.ContainsKey(id))
-                            scpShots.Add(id, 0);
-                        scpShots[id] += 1;
-                        if(scpShots[id] >= plugin.Config.specialRoles[ev.Target.Role]) {
+                    if(plugin.Config.TreatedLikeNormalDamage || plugin.Config.specialRoles.Keys.Contains(ev.Target.Role)) {
+                        if(!scpShots.ContainsKey(id)) scpShots.Add(id, 0);
+                        if (plugin.Config.TreatedLikeNormalDamage) scpShots[id] += oldamount;
+						else scpShots[id] += 1;
+                        if((plugin.Config.TreatedLikeNormalDamage && scpShots[id] >= ev.Target.Health) || (!plugin.Config.TreatedLikeNormalDamage && scpShots[id] >= plugin.Config.specialRoles[ev.Target.Role]))
+						{
                             Sleep(ev.Target);
                             scpShots[id] = 0;
                         }
                         return;
                     }
-
+					
                     Sleep(ev.Target);
                 }
             } catch(Exception e) {
