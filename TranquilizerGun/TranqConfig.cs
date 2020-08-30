@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -90,10 +90,14 @@ namespace TranquilizerGun {
         [Description("List of roles which will be ignored by the Tranquilizer.")]
         public bool doBlacklist { get; set; } = true;
         public string blacklist { get; set; } = "Scp173, Scp106";
+		
+		[Description("Do you want the tranquilizer shots to be treated like normal damage ? (For every shot, the plugin registers the normal amount of damage the gun would've normally done, once the damage you would've done exceed the target's current HP, they're put to sleep.)")]
+		public bool TreatedLikeNormalDamage { get; set; } = false;
+		
         [Description("List of roles which will require multiple shots to be put to sleep.")]
         public bool doSpecialRoles { get; set; } = false;
         public string specialRolesList { get; set; } = "Scp173:2, Scp106:5";
-
+		 
         internal List<RoleType> roleBlacklist;
         internal Dictionary<RoleType, ushort> specialRoles;
         #endregion
