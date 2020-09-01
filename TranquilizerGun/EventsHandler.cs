@@ -47,8 +47,13 @@ namespace TranquilizerGun {
             if(testFix)
                 return;
             try {
-                if((ev.Shooter.CurrentItem.id == ItemType.GunCOM15 && plugin.Config.comIsTranquilizer)
-                    || (ev.Shooter.CurrentItem.id == ItemType.GunUSP && plugin.Config.uspIsTranquilizer)) {
+                if((ev.Shooter.CurrentItem.id == ItemType.GunCOM15 && plugin.Config.Com15IsTranquilizer)
+                    || (ev.Shooter.CurrentItem.id == ItemType.GunUSP && plugin.Config.UspIsTranquilizer)
+					|| (ev.Shooter.CurrentItem.id == ItemType.GunMP7 && plugin.Config.Mp7IsTranquilizer)
+					|| (ev.Shooter.CurrentItem.id == ItemType.GunProject90 && plugin.Config.Project90IsTranquilizer)
+					|| (ev.Shooter.CurrentItem.id == ItemType.GunE11SR && plugin.Config.E11IsTranquilizer)
+					|| (ev.Shooter.CurrentItem.id == ItemType.GunLogicer && plugin.Config.LogicerIsTranquilizer))
+				{
 
                     if(plugin.Config.silencerRequired && !ev.Shooter.HasSilencer())
                         return;
@@ -87,8 +92,7 @@ namespace TranquilizerGun {
         public void HurtEvent(HurtingEventArgs ev) {
             try {
                 float oldamount = ev.Amount;
-                if (ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role))
-                    return;
+                if (ev.Attacker == null || ev.Attacker == ev.Target || plugin.Config.roleBlacklist.Contains(ev.Target.Role) || !plugin.Config.TranquilizeCuffed && ev.Target.IsCuffed) return;
                 else if(tranquilized.Contains(ev.Target.UserId)
                     && (ev.DamageType == DamageTypes.Decont || ev.DamageType == DamageTypes.Nuke || ev.DamageType == DamageTypes.Scp939) 
                     && (plugin.Config.teleportAway || plugin.Config.SummonRagdoll)) {
@@ -455,7 +459,7 @@ namespace TranquilizerGun {
         }
 
         public bool IsTranquilizerDamage(DamageTypes.DamageType damageType) 
-            => (plugin.Config.comIsTranquilizer && damageType == DamageTypes.Com15) || (plugin.Config.uspIsTranquilizer && damageType == DamageTypes.Usp);
+            => (plugin.Config.Com15IsTranquilizer && damageType == DamageTypes.Com15) || (plugin.Config.UspIsTranquilizer && damageType == DamageTypes.Usp) || (plugin.Config.Mp7IsTranquilizer && damageType == DamageTypes.Mp7) || (plugin.Config.Project90IsTranquilizer && damageType == DamageTypes.P90) || (plugin.Config.E11IsTranquilizer && damageType == DamageTypes.E11StandardRifle) || (plugin.Config.LogicerIsTranquilizer && damageType == DamageTypes.Logicer);
 
         public IEnumerator<float> DelayedReplace() {
             yield return Timing.WaitForSeconds(2f);
@@ -468,8 +472,12 @@ namespace TranquilizerGun {
         }
 
         public bool IsTranquilizer(ItemType type) =>
-            (type == ItemType.GunCOM15 && plugin.Config.comIsTranquilizer)
-                || (type == ItemType.GunUSP && plugin.Config.uspIsTranquilizer);
+            (type == ItemType.GunCOM15 && plugin.Config.Com15IsTranquilizer)
+                || (type == ItemType.GunUSP && plugin.Config.UspIsTranquilizer)
+                || (type == ItemType.GunMP7 && plugin.Config.Mp7IsTranquilizer)
+                || (type == ItemType.GunProject90 && plugin.Config.Project90IsTranquilizer)
+                || (type == ItemType.GunE11SR && plugin.Config.E11IsTranquilizer)
+                || (type == ItemType.GunLogicer && plugin.Config.LogicerIsTranquilizer);
 
         // I'm fucking lazy 
         private void ToggleArmor(Player p, out string ReplyMessage) {
