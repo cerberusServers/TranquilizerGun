@@ -18,13 +18,28 @@ namespace TranquilizerGun {
 
         [Description("If set to false, only the commands will be enabled.")]
         public bool IsEnabledCustom { get; set; } = true;
-
+		
+		[Description("Can you tranquilize handcuffed players?")]
+        public bool TranquilizeCuffed { get; set; } = false;
+		
         #region Tranquilizer Settings
         [Description("Is the COM-15 treated as a Tranquilizer?")]
-        public bool comIsTranquilizer { get; set; } = false;
+        public bool Com15IsTranquilizer { get; set; } = false;
 
         [Description("Is the USP treated as a Tranquilizer?")]
-        public bool uspIsTranquilizer { get; set; } = true;
+        public bool UspIsTranquilizer { get; set; } = true;
+		
+        [Description("Is the MP7 treated as a Tranquilizer?")]
+        public bool Mp7IsTranquilizer { get; set; } = false;
+		
+        [Description("Is the Project 90 treated as a Tranquilizer?")]
+        public bool Project90IsTranquilizer { get; set; } = false;
+		
+        [Description("Is the Epsilon-11 SR  treated as a Tranquilizer?")]
+        public bool E11IsTranquilizer { get; set; } = false;
+		
+        [Description("Is the Logicer treated as a Tranquilizer?")]
+        public bool LogicerIsTranquilizer { get; set; } = false;
 
         [Description("Any of the pistols need a silencer on them to be a Tranquilizer?")]
         public bool silencerRequired { get; set; } = true;
