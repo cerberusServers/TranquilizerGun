@@ -14,10 +14,10 @@ src="https://img.shields.io/github/license/cerberusServers/TranquilizerGun?style
    <a href="https://github.com/cerberusServers/TranquilizerGun/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/cerberusServers/TranquilizerGun?label=Last%20release&style=for-the-badge"></a>
 </p>
 
-# Tranquilizer Gun 2.0
+# 💤 Tranquilizer Gun 2.0 💤
 Remade from the ground, here it's the long awaited Tranquilizer Gun plugin! Allowing you to sleep both players and SCPs (Highly configurable).
 
-## What does it do?
+## What does it do ❓
 This plugin lets you put people to sleep using a pistol randomly found in LCZ & HCZ, one shot uses all your ammo and you will need to shoot SCPs twice to put them to sleep (Everything here is configurable, even the weapon!).
 
 # 💾｜Installation
