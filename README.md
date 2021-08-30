@@ -81,7 +81,9 @@ Arguments inside &lt;&gt; are required. [] means it's optional.
 
 # 📖｜Permissions
 The permissions file should be named ``permissions.yml`` and it is located in the Exiled Config folder.
+
 Windows: ``AppData\Roaming\EXILED\Configs``
+
 Linux: ``.config/EXILED/Plugins/Configs``
 
 Here is an example of how to assign a permission to a role
