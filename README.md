@@ -80,7 +80,10 @@ Arguments inside &lt;&gt; are required. [] means it's optional.
 | `specialRolesList` | Scp173:2, Scp106:5 | List of roles which will require multiple shots to be put to sleep. |
 
 # 📖｜Permissions
-These are the permissions that should be added to your permissions.yml inside your "EXILED-PTB\Configs" folder. (Inside %appdata% on Windows)
+The permissions file should be named ``permissions.yml`` and it is located in the Exiled Config folder.
+Windows: ``AppData\Roaming\EXILED\Configs``
+Linux: ``.config/EXILED/Plugins/Configs``
+
 | Permission  | This permission belongs to |
 | ------------- | ------------- |
 | tgun.tg | `tg` and it's arguments | 
