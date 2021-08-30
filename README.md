@@ -1,6 +1,18 @@
-[![Github All Releases](https://img.shields.io/github/downloads/cerberusServers/TranquilizerGun/total.svg)](https://github.com/cerberusServers/TranquilizerGun/releases) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/cerberusServers/TranquilizerGun/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/cerberusServers/TranquilizerGun/blob/main/LICENSE)
-<a href="https://github.com/cerberusServers/TranquilizerGun/releases"><img src="https://img.shields.io/github/v/release/cerberusServers/TranquilizerGun?include_prereleases&label=Release" alt="Releases"></a>
-<a href="https://discord.gg/PyUkWTg"><img src="https://img.shields.io/discord/656673194693885975?color=%23aa0000&label=EXILED" alt="Support"></a>
+<p align="center">
+<!--- # Issue counter -->
+    <a href="https://github.com/cerberusServers/TranquilizerGun/issues"><img src="https://img.shields.io/github/issues/cerberusServers/TranquilizerGun?color=red&style=for-the-badge"></a>
+<!--- # Download counter -->
+    <a href="https://github.com/cerberusServers/TranquilizerGun/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/cerberusServers/TranquilizerGun/total?style=for-the-badge"></a>
+<!--- # Repository license -->
+   <a href="https://github.com/cerberusServers/TranquilizerGun/blob/master/LICENSE"><img alt="GitHub license" 
+src="https://img.shields.io/github/license/cerberusServers/TranquilizerGun?style=for-the-badge"></a>
+<!--- # Forks project number -->
+   <a href="https://github.com/cerberusServers/TranquilizerGun/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/cerberusServers/TranquilizerGun?style=for-the-badge"></a>
+<!--- # Exiled Discord Server -->
+   <a href="https://discord.gg/PyUkWTg"><img alt="Discord" src="https://img.shields.io/discord/656673194693885975?color=critical&label=EXILED%20Discord&style=for-the-badge">
+<!--- # Latest release, includes pre-release -->
+   <a href="https://github.com/cerberusServers/TranquilizerGun/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/cerberusServers/TranquilizerGun?label=Last%20release&style=for-the-badge"></a>
+</p>
 
 # Tranquilizer Gun 2.0
 Remade from the ground, here it's the long awaited Tranquilizer Gun plugin! Allowing you to sleep both players and SCPs (Highly configurable).
