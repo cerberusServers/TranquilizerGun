@@ -84,6 +84,17 @@ The permissions file should be named ``permissions.yml`` and it is located in th
 Windows: ``AppData\Roaming\EXILED\Configs``
 Linux: ``.config/EXILED/Plugins/Configs``
 
+Here is an example of how to assign a permission to a role
+```yml
+owner:
+    default: false
+    inheritance: []
+    permissions:
+        - tgun.tg
+        - tgun.toggle
+        - tgun.givegun
+```
+
 | Permission  | This permission belongs to |
 | ------------- | ------------- |
 | tgun.tg | `tg` and it's arguments | 
