@@ -9,7 +9,7 @@ src="https://img.shields.io/github/license/cerberusServers/TranquilizerGun?style
 <!--- # Forks project number -->
    <a href="https://github.com/cerberusServers/TranquilizerGun/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/cerberusServers/TranquilizerGun?style=for-the-badge"></a>
 <!--- # Exiled Discord Server -->
-   <a href="https://discord.gg/PyUkWTg"><img alt="Discord" src="https://img.shields.io/discord/656673194693885975?color=critical&label=EXILED%20Discord&style=for-the-badge">
+   <a href="https://discord.gg/PyUkWTg"><img alt="Discord" src="https://img.shields.io/discord/656673194693885975?label=Exiled%20Discord&logo=discord&logoColor=red&style=for-the-badge">
 <!--- # Latest release, includes pre-release -->
    <a href="https://github.com/cerberusServers/TranquilizerGun/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/cerberusServers/TranquilizerGun?label=Last%20release&style=for-the-badge"></a>
 </p>
