@@ -6,7 +6,7 @@
 <!--- # Repository license -->
    <a href="https://github.com/cerberusServers/TranquilizerGun/blob/master/LICENSE"><img alt="GitHub license" 
 src="https://img.shields.io/github/license/cerberusServers/TranquilizerGun?style=for-the-badge"></a>
-<!--- # Forks project number -->
+<!--- # Forks counter -->
    <a href="https://github.com/cerberusServers/TranquilizerGun/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/cerberusServers/TranquilizerGun?style=for-the-badge"></a>
 <!--- # Exiled Discord Server -->
    <a href="https://discord.gg/PyUkWTg"><img alt="Discord" src="https://img.shields.io/discord/656673194693885975?label=Exiled%20Discord&logo=discord&logoColor=red&style=for-the-badge">
